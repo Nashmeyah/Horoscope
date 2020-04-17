@@ -1,32 +1,40 @@
 class Api
     def self.daily_horoscope(zodiac)
-        url = "http://horoscope-api.herokuapp.com/horoscope/today/#{zodiac}"
+        url = "http://horoscope-api.herokuapp.com/horoscope/today/#{zodiac.zodiac}"
         response = Net::HTTP.get(URI(url)) 
         horoscope_data = JSON.parse(response)
 
-       Horoscope.new(year: horoscope_data["year"], month: horoscope_data["month"],week: horoscope_data["week"],date: horoscope_data["date"], zodiac: horoscope_data["sunsign"], horoscope_info: horoscope_data["horoscope"])
+        zodiac.day = horoscope_data["date"]
+        zodiac.day_info = horoscope_data["horoscope"]
+
     end
 
     def self.weekly_horoscope(zodiac)
-        url = "http://horoscope-api.herokuapp.com/horoscope/week/#{zodiac}"
+        url = "http://horoscope-api.herokuapp.com/horoscope/week/#{zodiac.zodiac}"
         response = Net::HTTP.get(URI(url))
         horoscope_data = JSON.parse(response)
+        #binding.pry
 
-         Horoscope.new(year: horoscope_data["year"], month: horoscope_data["month"],week: horoscope_data["week"],date: horoscope_data["date"], zodiac: horoscope_data["sunsign"], horoscope_info: horoscope_data["horoscope"])
+        zodiac.week = horoscope_data["week"]
+        zodiac.week_info = horoscope_data["horoscope"]
     end
 
     def self.monthly_horoscope(zodiac)
-        url = "http://horoscope-api.herokuapp.com/horoscope/month/#{zodiac}"
+        url = "http://horoscope-api.herokuapp.com/horoscope/month/#{zodiac.zodiac}"
         response = Net::HTTP.get(URI(url))
         horoscope_data = JSON.parse(response)
-         Horoscope.new(year: horoscope_data["year"], month: horoscope_data["month"],week: horoscope_data["week"],date: horoscope_data["date"], zodiac: horoscope_data["sunsign"], horoscope_info: horoscope_data["horoscope"])
+         
+        zodiac.month = horoscope_data["month"]
+        zodiac.month_info = horoscope_data["horoscope"]
     end
 
     def self.yearly_horoscope(zodiac)
-        url = "http://horoscope-api.herokuapp.com/horoscope/year/#{zodiac}"
+        url = "http://horoscope-api.herokuapp.com/horoscope/year/#{zodiac.zodiac}"
         response = Net::HTTP.get(URI(url))
         horoscope_data = JSON.parse(response)
-         Horoscope.new(year: horoscope_data["year"], month: horoscope_data["month"],week: horoscope_data["week"],date: horoscope_data["date"], zodiac: horoscope_data["sunsign"], horoscope_info: horoscope_data["horoscope"])
+
+        zodiac.year = horoscope_data["year"]
+        zodiac.year_info = horoscope_data["horoscope"]
     end
 
 end
