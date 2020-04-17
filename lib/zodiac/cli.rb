@@ -78,7 +78,7 @@ class Cli
         puts " "
         puts " #{horoscope.zodiac.upcase}"
         puts " "
-        puts " #{horoscope.month_info}".colorize(:yellow)
+        puts " #{horoscope.month_info.gsub(/[\[\]"]/,"")}".colorize(:yellow)
         binding.pry
     end
     
