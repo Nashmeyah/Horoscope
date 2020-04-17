@@ -26,6 +26,9 @@ class Api
          
         zodiac.month = horoscope_data["month"]
         zodiac.month_info = horoscope_data["horoscope"]
+        zodiac.month_info.split(/[\[\]]/)
+        zodiac.month_info = self.join("")
+
     end
 
     def self.yearly_horoscope(zodiac)

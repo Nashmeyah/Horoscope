@@ -48,51 +48,48 @@ class Cli
     def zodiac_daily
         Api.daily_horoscope(Horoscope.find_by_zodiac(@zodiac)) if !Horoscope.find_by_zodiac(@zodiac).day_info
         horoscope = Horoscope.find_by_zodiac(@zodiac)
-            puts " "
-            puts " Here is your Daily Horoscope for #{horoscope.day}".colorize(:green)
-            puts " "
-            puts " #{horoscope.zodiac.upcase}"
-            puts " "
-            puts " #{horoscope.day_info}".colorize(:yellow)
-            #binding.pry 
+        puts " "
+        puts " Here is your Daily Horoscope for #{horoscope.day}".colorize(:green)
+        puts " "
+        puts " #{horoscope.zodiac.upcase}"
+        puts " "
+        puts " #{horoscope.day_info}".colorize(:yellow)
+        #binding.pry
     end
 
     def zodiac_week
         
         Api.weekly_horoscope(Horoscope.find_by_zodiac(@zodiac)) if !Horoscope.find_by_zodiac(@zodiac).week_info
-        #binding.pry
-            horoscope = Horoscope.find_by_zodiac(@zodiac)
-             
-            puts " "
-            puts " Here is your Weekly Horoscope for #{horoscope.week}".colorize(:green)
-            puts " "
-            puts " #{horoscope.zodiac.upcase}"
-            puts " "
-            puts " #{horoscope.week_info}".colorize(:yellow)
-            #binding.pry     
+        horoscope = Horoscope.find_by_zodiac(@zodiac)      
+        puts " "
+        puts " Here is your Weekly Horoscope for #{horoscope.week}".colorize(:green)
+        puts " "
+        puts " #{horoscope.zodiac.upcase}"
+        puts " "
+        puts " #{horoscope.week_info}".colorize(:yellow)  
+        #binding.pry 
     end
 
     def zodiac_month
         Api.monthly_horoscope(Horoscope.find_by_zodiac(@zodiac)) if !Horoscope.find_by_zodiac(@zodiac).month_info
         horoscope = Horoscope.find_by_zodiac(@zodiac)
-            puts " "
-            puts " Here is your Monthly Horoscope for #{horoscope.month}".colorize(:green)
-            puts " "
-            puts " #{horoscope.zodiac.upcase}"
-            puts " "
-            puts " #{horoscope.month_info}".colorize(:yellow)
-            #binding.pry 
+        puts " "
+        puts " Here is your Monthly Horoscope for #{horoscope.month}".colorize(:green)
+        puts " "
+        puts " #{horoscope.zodiac.upcase}"
+        puts " "
+        puts " #{horoscope.month_info}".colorize(:yellow)
+        binding.pry
     end
     
     def zodiac_year
         Api.yearly_horoscope(Horoscope.find_by_zodiac(@zodiac)) if !Horoscope.find_by_zodiac(@zodiac).year_info
         horoscope = Horoscope.find_by_zodiac(@zodiac)
-            puts " "
-            puts " Here is your Yearly Horoscope for #{horoscope.year}".colorize(:green)
-            puts " "
-            puts " #{horoscope.zodiac.upcase}"
-            puts " "
-            puts " #{horoscope.year_info}".colorize(:yellow)            
+        puts " "
+        puts " Here is your Yearly Horoscope for #{horoscope.year}".colorize(:green)
+        puts " "
+        puts " #{horoscope.zodiac.upcase}"
+        puts " "
+        puts " #{horoscope.year_info}".colorize(:yellow)            
     end
-    
 end
