@@ -3,7 +3,6 @@ class Cli
 
     def run
         # ZODIAC_SIGN.each {|z| @zodiac_horoscope = Horoscope.new(z)}
-
         puts " "
         puts "  Hello! Welcome to Zodiac Horoscopes!".colorize(:blue).on_white
         puts "  You can view Daily, Weekly, Monthly or Yearly horoscope of any zodiac sign!".colorize(:blue).on_white.underline
@@ -48,30 +47,32 @@ class Cli
 
     def zodiac_daily
         Api.daily_horoscope(@zodiac) if !Horoscope.find_by_zodiac(@zodiac, @horoscope_choice)
-        Horoscope.all.each do |info|
-            puts " "
-            puts " Here is your Daily Horoscope for #{info.date}".colorize(:green)
-            puts " "
-            puts " #{info.zodiac.upcase}"
-            puts " "
-            puts " #{info.horoscope_info}".colorize(:yellow)
-        end
+            Horoscope.all.each do |info|
+                puts " "
+                puts " Here is your Daily Horoscope for #{info.date}".colorize(:green)
+                puts " "
+                puts " #{info.zodiac.upcase}"
+                puts " "
+                puts " #{info.horoscope_info}".colorize(:yellow)
+            end
+            #binding.pry 
     end
 
-        def zodiac_week
-            Api.weekly_horoscope(@zodiac) if !Horoscope.find_by_zodiac(@zodiac, @horoscope_choice) 
-            Horoscope.all.each do |info|
+    def zodiac_week
+        Api.weekly_horoscope(@zodiac) if !Horoscope.find_by_zodiac(@zodiac, @horoscope_choice) 
+             Horoscope.all.each do |info|
                 puts " "
                 puts " Here is your Weekly Horoscope for #{info.week}".colorize(:green)
                 puts " "
                 puts " #{info.zodiac.upcase}"
                 puts " "
                 puts " #{info.horoscope_info}".colorize(:yellow)
-            end
-        end
+            end 
+            #binding.pry     
+    end
 
-        def zodiac_month
-            Api.monthly_horoscope(@zodiac) if !Horoscope.find_by_zodiac(@zodiac, @horoscope_choice)
+    def zodiac_month
+        Api.monthly_horoscope(@zodiac) if !Horoscope.find_by_zodiac(@zodiac, @horoscope_choice)
             Horoscope.all.each do |info|
                 puts " "
                 puts " Here is your Monthly Horoscope for #{info.month}".colorize(:green)
@@ -80,10 +81,11 @@ class Cli
                 puts " "
                 puts " #{info.horoscope_info}".colorize(:yellow)
             end
-        end
+            #binding.pry 
+    end
     
-        def zodiac_year
-            Api.yearly_horoscope(@zodiac) if !Horoscope.find_by_zodiac(@zodiac,@horoscope_choice)
+    def zodiac_year
+        Api.yearly_horoscope(@zodiac) if !Horoscope.find_by_zodiac(@zodiac,@horoscope_choice)
             Horoscope.all.each do |info|
                 puts " "
                 puts " Here is your Yearly Horoscope for #{info.year}".colorize(:green)
@@ -92,5 +94,7 @@ class Cli
                 puts " "
                 puts " #{info.horoscope_info}".colorize(:yellow)
             end
-        end
+            
+    end
+    
 end

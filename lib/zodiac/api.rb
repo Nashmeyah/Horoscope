@@ -11,6 +11,7 @@ class Api
         url = "http://horoscope-api.herokuapp.com/horoscope/week/#{zodiac}"
         response = Net::HTTP.get(URI(url))
         horoscope_data = JSON.parse(response)
+
         instance = Horoscope.new(year: horoscope_data["year"], month: horoscope_data["month"],week: horoscope_data["week"],date: horoscope_data["date"], zodiac: horoscope_data["sunsign"], horoscope_info: horoscope_data["horoscope"])
     end
 
