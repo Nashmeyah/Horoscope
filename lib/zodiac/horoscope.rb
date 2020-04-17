@@ -19,6 +19,6 @@ class Horoscope
     end
 
     def self.find_by_zodiac(zodiac, horoscope_choice)
-        @@all.find {|z| z.zodiac == zodiac && (z.type[0] == horoscope_choice)}
+        @@all.find {|z| z.zodiac == zodiac && (z.type == horoscope_choice)}
     end
 end
