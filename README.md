@@ -10,3 +10,6 @@ The gem is available as open source under the terms of the MIT License.
 Code of Conduct
 Everyone interacting in the IdeTest project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
 
+To download and try out this app,
+Forking - copying the lab from the github account
+Cloning - copying the lab from github account to your working environment
